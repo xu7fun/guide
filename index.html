@@ -1,0 +1,430 @@
+bash
+
+cat > /mnt/user-data/outputs/miles_free_guide.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miles 自媒體計畫 · 免費流程文件</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0D1B2A;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.7;
+}
+:root {
+  --midnight: #0D1B2A;
+  --steel: #1A3A5C;
+  --cream: #F5F0E8;
+  --orange: #FF6B2B;
+  --deep: #0A1628;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 56px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,107,43,0.15);
+}
+.hero::before {
+  content: "M";
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 320px; color: rgba(255,255,255,0.025);
+  top: -60px; left: 50%; transform: translateX(-50%);
+  pointer-events: none; line-height: 1;
+}
+.hero-badge {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  padding: 4px 14px; border-radius: 2px;
+  background: rgba(255,107,43,0.15);
+  border: 1px solid rgba(255,107,43,0.35);
+  color: var(--orange); margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(32px, 7vw, 52px);
+  letter-spacing: 0.06em; line-height: 1.1;
+  color: var(--cream); margin-bottom: 16px;
+}
+.hero-title span { color: var(--orange); }
+.hero-sub {
+  font-size: 14px; color: rgba(255,255,255,0.45);
+  max-width: 460px; margin: 0 auto 28px;
+  letter-spacing: 0.03em;
+}
+.hero-divider {
+  width: 48px; height: 3px;
+  background: var(--orange);
+  border-radius: 2px; margin: 0 auto;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+/* ── SECTION ── */
+.section { padding: 48px 0 0; }
+.section:last-child { padding-bottom: 60px; }
+
+.sec-eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.22em;
+  color: var(--orange); margin-bottom: 6px;
+}
+.sec-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px; letter-spacing: 0.08em;
+  color: var(--cream); margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ── INTRO CARD ── */
+.intro-card {
+  background: var(--steel);
+  border-radius: 12px; padding: 24px;
+  border-left: 4px solid var(--orange);
+  margin-bottom: 20px;
+}
+.intro-card p {
+  font-size: 14px; color: rgba(255,255,255,0.7);
+  line-height: 1.85;
+}
+.intro-card p + p { margin-top: 12px; }
+.intro-card strong { color: var(--cream); font-weight: 500; }
+
+/* ── STEP CARDS ── */
+.steps { display: flex; flex-direction: column; gap: 12px; }
+.step-card {
+  background: #132233;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px; overflow: hidden;
+}
+.step-head {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+}
+.step-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px; color: var(--orange);
+  line-height: 1; min-width: 32px;
+}
+.step-info-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.88);
+}
+.step-info-sub {
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  letter-spacing: 0.08em; margin-top: 2px;
+}
+.step-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.step-body p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.8; }
+.step-body p strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+
+/* bullet list */
+.bul { display: flex; flex-direction: column; gap: 6px; }
+.bul-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7;
+}
+.bul-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--orange); flex-shrink: 0; margin-top: 7px;
+}
+
+/* highlight box */
+.hl-box {
+  background: rgba(255,107,43,0.08);
+  border: 1px solid rgba(255,107,43,0.22);
+  border-radius: 8px; padding: 14px 16px;
+}
+.hl-box p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+.hl-box p strong { color: var(--cream); font-weight: 500; }
+
+/* ── INCOME TABLE ── */
+.income-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+.income-table th {
+  background: var(--deep);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.14em;
+  color: var(--orange); padding: 10px 14px;
+  text-align: left; border-bottom: 1px solid rgba(255,107,43,0.2);
+}
+.income-table td {
+  padding: 10px 14px; font-size: 12px;
+  color: rgba(255,255,255,0.55); line-height: 1.6;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  vertical-align: top;
+}
+.income-table tr:last-child td { border-bottom: none; }
+.income-table .amount { color: var(--orange); font-weight: 500; font-size: 13px; }
+
+/* ── TEAM SECTION ── */
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.team-card {
+  background: #132233;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 16px;
+}
+.team-card-icon { font-size: 20px; margin-bottom: 8px; }
+.team-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px; letter-spacing: 0.1em;
+  color: var(--cream); margin-bottom: 6px;
+}
+.team-card-desc {
+  font-size: 12px; color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+}
+
+/* ── CTA ── */
+.cta-block {
+  margin-top: 40px;
+  background: var(--steel);
+  border-radius: 14px; padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(255,107,43,0.2);
+}
+.cta-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 0.08em;
+  color: var(--cream); margin-bottom: 10px;
+}
+.cta-title span { color: var(--orange); }
+.cta-sub {
+  font-size: 13px; color: rgba(255,255,255,0.45);
+  margin-bottom: 24px; line-height: 1.7;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--orange); color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px; letter-spacing: 0.14em;
+  padding: 14px 36px; border-radius: 4px;
+  text-decoration: none; margin-bottom: 14px;
+  cursor: pointer;
+}
+.cta-note {
+  font-size: 11px; color: rgba(255,255,255,0.2);
+  letter-spacing: 0.08em;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 20px;
+  text-align: center;
+}
+footer p {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">MILES 自媒體計畫  ·  免費流程文件</div>
+  <div class="hero-title">素人怎麼靠自媒體<br><span>開始賺錢</span></div>
+  <div class="hero-sub">不需要很多粉絲，不需要業務背景。這份文件告訴你從零開始的每一步。</div>
+  <div class="hero-divider"></div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1: 關於我 -->
+  <div class="section">
+    <div class="sec-eyebrow">WHO AM I</div>
+    <div class="sec-title">我是誰，為什麼你該聽我說</div>
+    <div class="intro-card">
+      <p>我叫 Miles，運動員出身，剛從競技場退下來準備畢業。<strong>我也曾經不知道自己能做什麼。</strong></p>
+      <p>後來我加入了一個自媒體團隊——有完整的起號 SOP、有顧問帶、有分潤機制。我從零開始，邊學邊做，才知道原來素人也可以用自媒體創造收入。</p>
+      <p><strong>這份文件是我希望當初有人給我的東西。</strong>完全免費，因為我知道剛起步最需要的是方向，不是又一個要付費的課程。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: 起號 SOP -->
+  <div class="section">
+    <div class="sec-eyebrow">STEP BY STEP</div>
+    <div class="sec-title">素人從零起號的完整 SOP</div>
+    <div class="steps">
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-info-title">確認你要說給誰聽</div>
+            <div class="step-info-sub">第一週  ·  最重要的一步</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <p>很多人一開始就想拍影片，但跳過了最關鍵的問題：<strong>你的內容是說給什麼樣的人聽的？</strong></p>
+          <div class="bul">
+            <div class="bul-item"><div class="bul-dot"></div>想清楚你的受眾是誰——他在什麼處境、他最大的焦慮是什麼</div>
+            <div class="bul-item"><div class="bul-dot"></div>你有沒有親身經歷過這個處境？有的話，你就有內容了</div>
+            <div class="bul-item"><div class="bul-dot"></div>不要試圖說給所有人聽，說給一個人聽就夠了</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-info-title">建立三支內容支柱</div>
+            <div class="step-info-sub">第一到二週  ·  決定你要拍什麼</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <p>每個帳號都需要三種內容輪流拍，缺一個都會卡：</p>
+          <div class="bul">
+            <div class="bul-item"><div class="bul-dot"></div><strong>爆紅型：</strong>反直覺觀點，讓陌生人停下來看——「大家以為 XXX，但真相是 XXX」</div>
+            <div class="bul-item"><div class="bul-dot"></div><strong>權威型：</strong>過來人視角，讓人覺得你懂他值得被 follow</div>
+            <div class="bul-item"><div class="bul-dot"></div><strong>忠誠型：</strong>真實過程直播，讓人跟著你一起走</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-info-title">每週固定發片節奏</div>
+            <div class="step-info-sub">第二週起  ·  持續最重要</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <p>起步期建議每週至少 <strong>3 支 Reels</strong>，三種支柱輪流拍。</p>
+          <div class="hl-box">
+            <p><strong>最常見的錯誤：</strong>想到才發。演算法需要固定節奏才會推你，不穩定的帳號很難成長。與其拍很精緻但一週一支，不如拍簡單但穩定三支。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-head">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-info-title">看數據、調整方向</div>
+            <div class="step-info-sub">每兩週  ·  不要亂槍打鳥</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <p>發了 10 支之後，回頭看數據：</p>
+          <div class="bul">
+            <div class="bul-item"><div class="bul-dot"></div>哪支觀看最高？鉤子是什麼？下次複製</div>
+            <div class="bul-item"><div class="bul-dot"></div>哪支留言最多？觀眾在乎什麼？繼續做</div>
+            <div class="bul-item"><div class="bul-dot"></div>哪支完全沒反應？找出原因，不要再拍同樣的結構</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: 賺錢 -->
+  <div class="section">
+    <div class="sec-eyebrow">HOW TO EARN</div>
+    <div class="sec-title">怎麼透過自媒體賺取分潤</div>
+
+    <div class="intro-card" style="margin-bottom:16px">
+      <p>很多人以為要有幾萬粉才能賺錢。<strong>不對。</strong>我們團隊裡有人從幾百粉就開始有收入——因為他們用的是對的方法：分潤機制。</p>
+    </div>
+
+    <table class="income-table">
+      <tr>
+        <th>方式</th>
+        <th>怎麼做</th>
+        <th>收入來源</th>
+      </tr>
+      <tr>
+        <td><strong style="color:rgba(255,255,255,0.8)">介紹人加入</strong></td>
+        <td>把這套流程分享給有需要的人，對方加入後你拿分潤</td>
+        <td class="amount">分潤收入</td>
+      </tr>
+      <tr>
+        <td><strong style="color:rgba(255,255,255,0.8)">內容帶流量</strong></td>
+        <td>用 Reels 持續輸出，有興趣的人自己找進來</td>
+        <td class="amount">被動導流</td>
+      </tr>
+      <tr>
+        <td><strong style="color:rgba(255,255,255,0.8)">顧問服務</strong></td>
+        <td>熟悉流程後，可以幫別人起號，收取顧問費</td>
+        <td class="amount">主動收入</td>
+      </tr>
+    </table>
+
+    <div class="hl-box" style="margin-top:14px">
+      <p><strong>重點：</strong>你不需要先有很多粉才開始賺。你需要的是開始做內容、讓對的人找到你、然後把這套流程介紹給他們。就這樣。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: 團隊資源 -->
+  <div class="section">
+    <div class="sec-eyebrow">WHAT YOU GET</div>
+    <div class="sec-title">加入團隊你會得到什麼</div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-icon">📋</div>
+        <div class="team-card-title">完整 SOP</div>
+        <div class="team-card-desc">從起號到第一筆收入的每一步，都有文件可以照著走，不用自己摸索。</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-icon">👤</div>
+        <div class="team-card-title">專屬顧問</div>
+        <div class="team-card-desc">進來之後有人帶，卡關了有人問，不是一個人單打獨鬥。</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-icon">💰</div>
+        <div class="team-card-title">分潤機制</div>
+        <div class="team-card-desc">介紹對的人進來就有收入，做好內容讓流量自己進來也有收入。</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-icon">👥</div>
+        <div class="team-card-title">社群支持</div>
+        <div class="team-card-desc">跟一群同樣在起步的人一起走，互相看對方的內容、給回饋。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">準備好了嗎？<br><span>我們來聊聊你的狀況</span></div>
+    <div class="cta-sub">填完表之後我會在 1 小時內私訊你。<br>不是推銷，是先聊聊你現在卡在哪裡。</div>
+    <a class="cta-btn" href="#">預約免費 10 分鐘聊聊 →</a>
+    <div class="cta-note">完全免費  ·  不會強迫你做任何決定</div>
+  </div>
+
+</div>
+
+<footer>
+  <p>MILES 自媒體計畫  ·  2025  ·  ALL RIGHTS RESERVED</p>
+</footer>
+
+</body>
+</html>
+HTMLEOF
+echo "done"
+Output
+
+done
