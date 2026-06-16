@@ -1,6 +1,3 @@
-bash
-
-cat > /mnt/user-data/outputs/miles_free_guide.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -24,8 +21,6 @@ body {
   --orange: #FF6B2B;
   --deep: #0A1628;
 }
-
-/* ── HERO ── */
 .hero {
   background: var(--deep);
   padding: 56px 24px 48px;
@@ -68,14 +63,9 @@ body {
   background: var(--orange);
   border-radius: 2px; margin: 0 auto;
 }
-
-/* ── LAYOUT ── */
 .container { max-width: 680px; margin: 0 auto; padding: 0 20px; }
-
-/* ── SECTION ── */
 .section { padding: 48px 0 0; }
 .section:last-child { padding-bottom: 60px; }
-
 .sec-eyebrow {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 11px; letter-spacing: 0.22em;
@@ -88,8 +78,6 @@ body {
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-
-/* ── INTRO CARD ── */
 .intro-card {
   background: var(--steel);
   border-radius: 12px; padding: 24px;
@@ -102,8 +90,6 @@ body {
 }
 .intro-card p + p { margin-top: 12px; }
 .intro-card strong { color: var(--cream); font-weight: 500; }
-
-/* ── STEP CARDS ── */
 .steps { display: flex; flex-direction: column; gap: 12px; }
 .step-card {
   background: #132233;
@@ -133,8 +119,6 @@ body {
 .step-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
 .step-body p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.8; }
 .step-body p strong { color: rgba(255,255,255,0.8); font-weight: 500; }
-
-/* bullet list */
 .bul { display: flex; flex-direction: column; gap: 6px; }
 .bul-item {
   display: flex; gap: 10px; align-items: flex-start;
@@ -144,8 +128,6 @@ body {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--orange); flex-shrink: 0; margin-top: 7px;
 }
-
-/* highlight box */
 .hl-box {
   background: rgba(255,107,43,0.08);
   border: 1px solid rgba(255,107,43,0.22);
@@ -154,25 +136,26 @@ body {
 .hl-box p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; }
 .hl-box p strong { color: var(--cream); font-weight: 500; }
 
-/* ── INCOME TABLE ── */
-.income-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
-.income-table th {
-  background: var(--deep);
+/* income cards */
+.income-grid { display: flex; flex-direction: column; gap: 10px; }
+.income-card {
+  background: #132233;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 18px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.income-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.income-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 11px; letter-spacing: 0.14em;
-  color: var(--orange); padding: 10px 14px;
-  text-align: left; border-bottom: 1px solid rgba(255,107,43,0.2);
+  font-size: 15px; letter-spacing: 0.1em;
+  color: var(--cream); margin-bottom: 5px;
 }
-.income-table td {
-  padding: 10px 14px; font-size: 12px;
-  color: rgba(255,255,255,0.55); line-height: 1.6;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  vertical-align: top;
+.income-desc {
+  font-size: 12px; color: rgba(255,255,255,0.45);
+  line-height: 1.75;
 }
-.income-table tr:last-child td { border-bottom: none; }
-.income-table .amount { color: var(--orange); font-weight: 500; font-size: 13px; }
+.income-desc strong { color: rgba(255,255,255,0.7); font-weight: 500; }
 
-/* ── TEAM SECTION ── */
 .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .team-card {
   background: #132233;
@@ -190,7 +173,7 @@ body {
   line-height: 1.7;
 }
 
-/* ── CTA ── */
+/* CTA */
 .cta-block {
   margin-top: 40px;
   background: var(--steel);
@@ -206,34 +189,33 @@ body {
 .cta-title span { color: var(--orange); }
 .cta-sub {
   font-size: 13px; color: rgba(255,255,255,0.45);
-  margin-bottom: 24px; line-height: 1.7;
+  margin-bottom: 24px; line-height: 1.8;
 }
 .cta-btn {
-  display: inline-block;
-  background: var(--orange); color: #fff;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #06C755; color: #fff;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px; letter-spacing: 0.14em;
-  padding: 14px 36px; border-radius: 4px;
+  font-size: 17px; letter-spacing: 0.12em;
+  padding: 16px 36px; border-radius: 6px;
   text-decoration: none; margin-bottom: 14px;
   cursor: pointer;
 }
+.cta-btn:hover { background: #05a847; }
+.line-icon { font-size: 20px; }
 .cta-note {
   font-size: 11px; color: rgba(255,255,255,0.2);
   letter-spacing: 0.08em;
 }
 
-/* ── FOOTER ── */
 footer {
   border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 24px 20px;
-  text-align: center;
+  padding: 24px 20px; text-align: center;
 }
 footer p {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 11px; letter-spacing: 0.18em;
   color: rgba(255,255,255,0.2);
 }
-
 @media (max-width: 480px) {
   .team-grid { grid-template-columns: 1fr; }
 }
@@ -241,33 +223,31 @@ footer p {
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-badge">MILES 自媒體計畫  ·  免費流程文件</div>
-  <div class="hero-title">素人怎麼靠自媒體<br><span>開始賺錢</span></div>
+  <div class="hero-title">素人怎麼靠自媒體<br><span>開始有收入</span></div>
   <div class="hero-sub">不需要很多粉絲，不需要業務背景。這份文件告訴你從零開始的每一步。</div>
   <div class="hero-divider"></div>
 </div>
 
 <div class="container">
 
-  <!-- SECTION 1: 關於我 -->
+  <!-- 01 關於我 -->
   <div class="section">
     <div class="sec-eyebrow">WHO AM I</div>
     <div class="sec-title">我是誰，為什麼你該聽我說</div>
     <div class="intro-card">
       <p>我叫 Miles，運動員出身，剛從競技場退下來準備畢業。<strong>我也曾經不知道自己能做什麼。</strong></p>
-      <p>後來我加入了一個自媒體團隊——有完整的起號 SOP、有顧問帶、有分潤機制。我從零開始，邊學邊做，才知道原來素人也可以用自媒體創造收入。</p>
+      <p>後來我加入了一個自媒體團隊——有完整的起號 SOP、有顧問帶、有清楚的收入機制。我從零開始，邊學邊做，才知道原來素人也可以用自媒體創造真實收入。</p>
       <p><strong>這份文件是我希望當初有人給我的東西。</strong>完全免費，因為我知道剛起步最需要的是方向，不是又一個要付費的課程。</p>
     </div>
   </div>
 
-  <!-- SECTION 2: 起號 SOP -->
+  <!-- 02 起號 SOP -->
   <div class="section">
     <div class="sec-eyebrow">STEP BY STEP</div>
     <div class="sec-title">素人從零起號的完整 SOP</div>
     <div class="steps">
-
       <div class="step-card">
         <div class="step-head">
           <div class="step-num">01</div>
@@ -297,7 +277,7 @@ footer p {
         <div class="step-body">
           <p>每個帳號都需要三種內容輪流拍，缺一個都會卡：</p>
           <div class="bul">
-            <div class="bul-item"><div class="bul-dot"></div><strong>爆紅型：</strong>反直覺觀點，讓陌生人停下來看——「大家以為 XXX，但真相是 XXX」</div>
+            <div class="bul-item"><div class="bul-dot"></div><strong>爆紅型：</strong>反直覺觀點，讓陌生人停下來看</div>
             <div class="bul-item"><div class="bul-dot"></div><strong>權威型：</strong>過來人視角，讓人覺得你懂他值得被 follow</div>
             <div class="bul-item"><div class="bul-dot"></div><strong>忠誠型：</strong>真實過程直播，讓人跟著你一起走</div>
           </div>
@@ -333,56 +313,65 @@ footer p {
           <div class="bul">
             <div class="bul-item"><div class="bul-dot"></div>哪支觀看最高？鉤子是什麼？下次複製</div>
             <div class="bul-item"><div class="bul-dot"></div>哪支留言最多？觀眾在乎什麼？繼續做</div>
-            <div class="bul-item"><div class="bul-dot"></div>哪支完全沒反應？找出原因，不要再拍同樣的結構</div>
+            <div class="bul-item"><div class="bul-dot"></div>哪支完全沒反應？找出原因，調整結構</div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- SECTION 3: 賺錢 -->
+  <!-- 03 收入方式 -->
   <div class="section">
     <div class="sec-eyebrow">HOW TO EARN</div>
-    <div class="sec-title">怎麼透過自媒體賺取分潤</div>
+    <div class="sec-title">做自媒體可以怎麼有收入</div>
 
     <div class="intro-card" style="margin-bottom:16px">
-      <p>很多人以為要有幾萬粉才能賺錢。<strong>不對。</strong>我們團隊裡有人從幾百粉就開始有收入——因為他們用的是對的方法：分潤機制。</p>
+      <p>很多人以為要有幾萬粉才能賺錢。<strong>不對。</strong>收入跟粉絲數沒有直接關係——跟你有沒有對的方法、對的東西、對的人帶有關係。</p>
     </div>
 
-    <table class="income-table">
-      <tr>
-        <th>方式</th>
-        <th>怎麼做</th>
-        <th>收入來源</th>
-      </tr>
-      <tr>
-        <td><strong style="color:rgba(255,255,255,0.8)">介紹人加入</strong></td>
-        <td>把這套流程分享給有需要的人，對方加入後你拿分潤</td>
-        <td class="amount">分潤收入</td>
-      </tr>
-      <tr>
-        <td><strong style="color:rgba(255,255,255,0.8)">內容帶流量</strong></td>
-        <td>用 Reels 持續輸出，有興趣的人自己找進來</td>
-        <td class="amount">被動導流</td>
-      </tr>
-      <tr>
-        <td><strong style="color:rgba(255,255,255,0.8)">顧問服務</strong></td>
-        <td>熟悉流程後，可以幫別人起號，收取顧問費</td>
-        <td class="amount">主動收入</td>
-      </tr>
-    </table>
+    <div class="income-grid">
+      <div class="income-card">
+        <div class="income-icon">🎯</div>
+        <div>
+          <div class="income-title">透過內容吸引精準的人</div>
+          <div class="income-desc">用 Reels 持續輸出，<strong>讓對的人主動找到你</strong>。不是靠粉絲數，是靠內容精準度。找到你的人才是真正有機會合作或購買的人。</div>
+        </div>
+      </div>
+
+      <div class="income-card">
+        <div class="income-icon">📦</div>
+        <div>
+          <div class="income-title">有產品可以推薦給你的受眾</div>
+          <div class="income-desc">我們有<strong>實際的產品</strong>可以讓你介紹給你的觀眾或客戶。不需要自己開發，不需要庫存，有人買你就有收入。適合剛起步、還沒有自己產品的人。</div>
+        </div>
+      </div>
+
+      <div class="income-card">
+        <div class="income-icon">🤝</div>
+        <div>
+          <div class="income-title">介紹對的人一起做</div>
+          <div class="income-desc">如果你身邊也有<strong>想用自媒體創造收入但不知道怎麼開始的人</strong>，把這套資源分享給他，你們可以一起走，收入也可以一起來。</div>
+        </div>
+      </div>
+
+      <div class="income-card">
+        <div class="income-icon">💼</div>
+        <div>
+          <div class="income-title">累積經驗後提供顧問服務</div>
+          <div class="income-desc">熟悉整套流程之後，你可以<strong>幫別人起號、規劃內容方向</strong>，收取顧問費。這是很多人在第二、三個月開始發展的方向。</div>
+        </div>
+      </div>
+    </div>
 
     <div class="hl-box" style="margin-top:14px">
-      <p><strong>重點：</strong>你不需要先有很多粉才開始賺。你需要的是開始做內容、讓對的人找到你、然後把這套流程介紹給他們。就這樣。</p>
+      <p><strong>重點：</strong>這四種收入可以同時進行，也可以從其中一個開始。具體怎麼搭配、哪個最適合你的狀況——這是我們聊 10 分鐘就可以幫你釐清的事。</p>
     </div>
   </div>
 
-  <!-- SECTION 4: 團隊資源 -->
+  <!-- 04 團隊資源 -->
   <div class="section">
     <div class="sec-eyebrow">WHAT YOU GET</div>
-    <div class="sec-title">加入團隊你會得到什麼</div>
-
+    <div class="sec-title">加入之後你會得到什麼</div>
     <div class="team-grid">
       <div class="team-card">
         <div class="team-card-icon">📋</div>
@@ -395,24 +384,31 @@ footer p {
         <div class="team-card-desc">進來之後有人帶，卡關了有人問，不是一個人單打獨鬥。</div>
       </div>
       <div class="team-card">
-        <div class="team-card-icon">💰</div>
-        <div class="team-card-title">分潤機制</div>
-        <div class="team-card-desc">介紹對的人進來就有收入，做好內容讓流量自己進來也有收入。</div>
+        <div class="team-card-icon">📦</div>
+        <div class="team-card-title">現成產品資源</div>
+        <div class="team-card-desc">不需要自己開發產品，有現成的東西可以推薦，讓你專心做內容就好。</div>
       </div>
       <div class="team-card">
         <div class="team-card-icon">👥</div>
         <div class="team-card-title">社群支持</div>
-        <div class="team-card-desc">跟一群同樣在起步的人一起走，互相看對方的內容、給回饋。</div>
+        <div class="team-card-desc">跟一群同樣在起步的人一起走，互相看內容、給回饋、一起成長。</div>
       </div>
     </div>
   </div>
 
   <!-- CTA -->
   <div class="cta-block">
-    <div class="cta-title">準備好了嗎？<br><span>我們來聊聊你的狀況</span></div>
-    <div class="cta-sub">填完表之後我會在 1 小時內私訊你。<br>不是推銷，是先聊聊你現在卡在哪裡。</div>
-    <a class="cta-btn" href="#">預約免費 10 分鐘聊聊 →</a>
-    <div class="cta-note">完全免費  ·  不會強迫你做任何決定</div>
+    <div class="cta-title">想知道這套<br><span>適不適合你？</span></div>
+    <div class="cta-sub">
+      不用想太多，先聊 10 分鐘就好。<br>
+      我會問你現在的狀況，告訴你從哪裡開始最適合你。<br>
+      不是推銷，是真的幫你釐清方向。
+    </div>
+    <a class="cta-btn" href="https://line.me/ti/p/sam041412" target="_blank">
+      <span class="line-icon">💬</span>
+      加 LINE 聊 10 分鐘
+    </a>
+    <div class="cta-note">完全免費  ·  不會強迫你做任何決定  ·  LINE ID：sam041412</div>
   </div>
 
 </div>
@@ -423,8 +419,5 @@ footer p {
 
 </body>
 </html>
-HTMLEOF
-echo "done"
-Output
 
-done
+
